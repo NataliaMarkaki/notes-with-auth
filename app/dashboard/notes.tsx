@@ -95,42 +95,42 @@ export function Notes() {
 
   return (
     <div>
-      <h2 className="text-xl font-semibold text-zinc-900 mb-4">Your notes</h2>
+      <h2 className='text-xl font-semibold text-zinc-900 mb-4'>Your notes</h2>
 
       <form
         onSubmit={(e) => {
           e.preventDefault();
           if (newContent.trim()) createMutation.mutate(newContent);
         }}
-        className="mb-6 flex flex-col gap-2"
+        className='mb-6 flex flex-col gap-2'
       >
         <textarea
           value={newContent}
           onChange={(e) => setNewContent(e.target.value)}
-          placeholder="Write a note..."
+          placeholder='Write a note...'
           rows={3}
-          className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent resize-none"
+          className='w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent resize-none text-zinc-900 placeholder:text-zinc-500 caret-zinc-900'
         />
         <button
-          type="submit"
+          type='submit'
           disabled={createMutation.isPending || !newContent.trim()}
-          className="self-end rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          className='self-end rounded-lg bg-zinc-900 px-4 py-2 text-sm font-medium text-white hover:bg-zinc-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed'
         >
           {createMutation.isPending ? "Adding..." : "Add note"}
         </button>
       </form>
 
-      {isLoading && <p className="text-sm text-zinc-400">Loading notes...</p>}
+      {isLoading && <p className='text-sm text-zinc-400'>Loading notes...</p>}
 
       {notes.length === 0 && !isLoading && (
-        <p className="text-sm text-zinc-400">No notes yet. Write one above.</p>
+        <p className='text-sm text-zinc-400'>No notes yet. Write one above.</p>
       )}
 
-      <ul className="flex flex-col gap-3">
+      <ul className='flex flex-col gap-3'>
         {notes.map((note) => (
           <li
             key={note.id}
-            className="bg-white rounded-xl border border-zinc-200 p-4"
+            className='bg-white rounded-xl border border-zinc-200 p-4'
           >
             {editingId === note.id ? (
               <form
@@ -138,26 +138,26 @@ export function Notes() {
                   e.preventDefault();
                   updateMutation.mutate({ id: note.id, content: editContent });
                 }}
-                className="flex flex-col gap-2"
+                className='flex flex-col gap-2'
               >
                 <textarea
                   value={editContent}
                   onChange={(e) => setEditContent(e.target.value)}
                   rows={3}
-                  className="w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent resize-none"
+                  className='w-full rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent resize-none'
                 />
-                <div className="flex gap-2 justify-end">
+                <div className='flex gap-2 justify-end'>
                   <button
-                    type="button"
+                    type='button'
                     onClick={cancelEdit}
-                    className="rounded-lg border border-zinc-200 px-3 py-1.5 text-sm text-zinc-600 hover:bg-zinc-50 transition-colors"
+                    className='rounded-lg border border-zinc-200 px-3 py-1.5 text-sm text-zinc-600 hover:bg-zinc-50 transition-colors'
                   >
                     Cancel
                   </button>
                   <button
-                    type="submit"
+                    type='submit'
                     disabled={updateMutation.isPending || !editContent.trim()}
-                    className="rounded-lg bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-700 transition-colors disabled:opacity-40"
+                    className='rounded-lg bg-zinc-900 px-3 py-1.5 text-sm font-medium text-white hover:bg-zinc-700 transition-colors disabled:opacity-40'
                   >
                     {updateMutation.isPending ? "Saving..." : "Save"}
                   </button>
@@ -165,25 +165,25 @@ export function Notes() {
               </form>
             ) : (
               <>
-                <p className="text-sm text-zinc-800 whitespace-pre-wrap">
+                <p className='text-sm text-zinc-800 whitespace-pre-wrap'>
                   {note.content}
                 </p>
-                <div className="mt-3 flex items-center justify-between">
-                  <p className="text-xs text-zinc-400">
+                <div className='mt-3 flex items-center justify-between'>
+                  <p className='text-xs text-zinc-400'>
                     {new Date(note.createdAt).toLocaleString()}
                     {note.updatedAt !== note.createdAt && " · edited"}
                   </p>
-                  <div className="flex gap-2">
+                  <div className='flex gap-2'>
                     <button
                       onClick={() => startEdit(note)}
-                      className="text-xs text-zinc-500 hover:text-zinc-900 transition-colors"
+                      className='text-xs text-zinc-500 hover:text-zinc-900 transition-colors'
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => deleteMutation.mutate(note.id)}
                       disabled={deleteMutation.isPending}
-                      className="text-xs text-red-400 hover:text-red-600 transition-colors disabled:opacity-40"
+                      className='text-xs text-red-400 hover:text-red-600 transition-colors disabled:opacity-40'
                     >
                       Delete
                     </button>

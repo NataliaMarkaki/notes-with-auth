@@ -50,7 +50,7 @@ export default async function RegisterPage({
               id="name"
               name="name"
               type="text"
-              className="rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
+                className="rounded-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-500 caret-zinc-900 outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -60,7 +60,7 @@ export default async function RegisterPage({
               name="email"
               type="email"
               required
-              className="rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
+                className="rounded-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-500 caret-zinc-900 outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
             />
           </div>
           <div className="flex flex-col gap-1">
@@ -71,7 +71,7 @@ export default async function RegisterPage({
               type="password"
               required
               minLength={8}
-              className="rounded-lg border border-zinc-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
+                className="rounded-lg border border-zinc-300 px-3 py-2 text-sm text-zinc-900 placeholder:text-zinc-500 caret-zinc-900 outline-none focus:ring-2 focus:ring-zinc-900 focus:border-transparent"
             />
           </div>
 
