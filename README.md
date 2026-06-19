@@ -1,11 +1,11 @@
 # Notes App with auth
-A demo app showcasing a full-stack Next.js authentication and CRUD flow. Built to demonstrate proficiency with the App Router, server actions, database modeling, and testing — not intended for production use.
+A demo app showcasing a full-stack Next.js authentication and CRUD flow. Built to demonstrate proficiency with the App Router, server actions, database modeling, and testing. **Not intended for production use.**
 
-**Preview:** 
+**Preview:** https://notes-with-auth.vercel.app/
 **Test login:**
 
-- Email: 
-- Password: 
+- Email: `test.user-abc@example.com`
+- Password: `password`
 
 ## Tech stack
 
